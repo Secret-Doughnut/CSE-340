@@ -1,30 +1,361 @@
-html, body {
-    background-color: lightblue;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
+/* Written by ChatGPT. */
+
+/* =========================================================
+   CSE 340 Service Network
+   Main Stylesheet
+   ========================================================= */
+
+/* ---------- CSS Variables ---------- */
+
+:root {
+    --color-primary: #164e63;
+    --color-primary-dark: #0f3b4c;
+    --color-secondary: #0f766e;
+    --color-accent: #d97706;
+
+    --color-background: #f5f7f9;
+    --color-surface: #ffffff;
+    --color-text: #1f2937;
+    --color-text-muted: #4b5563;
+    --color-border: #d1d5db;
+
+    --color-focus: #f59e0b;
+
+    --max-width: 1100px;
+
+    --radius: 10px;
+    --shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+
+    --font-main: Arial, Helvetica, sans-serif;
+}
+
+
+/* ---------- Reset / Base Styles ---------- */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
 }
 
 body {
-    nav {
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
+    margin: 0;
+    min-height: 100vh;
 
-        li {
-            display: inline;
-            margin-right: 15px;
-        }
+    display: flex;
+    flex-direction: column;
 
-        a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
+    background-color: var(--color-background);
+    color: var(--color-text);
 
-            &:hover {
-                color: #0066cc;
-            }
-        }
+    font-family: var(--font-main);
+    line-height: 1.6;
+}
+
+
+/* ---------- Navigation ---------- */
+
+nav {
+    background-color: var(--color-primary);
+    border-bottom: 4px solid var(--color-accent);
+}
+
+nav ul {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    list-style: none;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    display: block;
+    padding: 1rem 1.25rem;
+
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+nav a:hover {
+    background-color: var(--color-primary-dark);
+    color: #ffffff;
+}
+
+nav a:focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: -3px;
+}
+
+
+/* ---------- Main Content ---------- */
+
+main {
+    width: min(100% - 2rem, var(--max-width));
+    margin: 3rem auto;
+    padding: 2.5rem;
+
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+
+    flex: 1;
+}
+
+
+/* ---------- Headings ---------- */
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+    color: var(--color-primary-dark);
+    line-height: 1.25;
+}
+
+h1 {
+    margin-bottom: 0.75rem;
+    font-size: clamp(2rem, 5vw, 2.75rem);
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+h3 {
+    font-size: 1.35rem;
+}
+
+p {
+    color: var(--color-text);
+}
+
+
+/* ---------- Organization List ---------- */
+
+main > ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+
+    margin: 2rem 0 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+main > ul > li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    min-width: 0;
+    padding: 1.5rem;
+
+    background-color: #f8fafc;
+    border: 1px solid var(--color-border);
+    border-top: 5px solid var(--color-secondary);
+    border-radius: var(--radius);
+
+    color: var(--color-text);
+
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+main > ul > li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
+}
+
+
+/* ---------- Organization Logos ---------- */
+
+main > ul > li img {
+    display: block;
+
+    width: 100%;
+    max-width: 180px;
+    height: 100px;
+
+    object-fit: contain;
+    object-position: left center;
+
+    margin-bottom: 1rem;
+}
+
+
+/* ---------- Organization Names ---------- */
+
+main > ul > li strong {
+    display: block;
+    margin-bottom: 0.25rem;
+
+    color: var(--color-primary-dark);
+    font-size: 1.1rem;
+}
+
+
+/* ---------- Links ---------- */
+
+a {
+    color: #075985;
+}
+
+a:hover {
+    color: #0c4a6e;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 3px;
+}
+
+
+/* ---------- Footer ---------- */
+
+footer {
+    margin-top: auto;
+    padding: 1.5rem 1rem;
+
+    background-color: var(--color-primary-dark);
+    color: #ffffff;
+
+    text-align: center;
+}
+
+footer p {
+    max-width: var(--max-width);
+    margin: 0 auto;
+
+    color: #ffffff;
+    font-size: 0.95rem;
+}
+
+
+/* ---------- Responsive: Tablets ---------- */
+
+@media (max-width: 800px) {
+
+    nav ul {
+        flex-wrap: wrap;
     }
-}                
+
+    nav a {
+        padding: 0.85rem 1rem;
+    }
+
+    main {
+        margin: 2rem auto;
+        padding: 2rem;
+    }
+
+    main > ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* ---------- Responsive: Mobile ---------- */
+
+@media (max-width: 600px) {
+
+    nav ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+    }
+
+    nav a {
+        padding: 0.8rem 0.5rem;
+
+        text-align: center;
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    main {
+        width: calc(100% - 1.5rem);
+        margin: 1.25rem auto;
+        padding: 1.5rem 1.25rem;
+
+        border-radius: 8px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    main > ul {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    main > ul > li {
+        padding: 1.25rem;
+    }
+
+    main > ul > li img {
+        max-width: 160px;
+        height: 90px;
+    }
+}
+
+
+/* ---------- Very Small Screens ---------- */
+
+@media (max-width: 380px) {
+
+    nav ul {
+        grid-template-columns: 1fr;
+    }
+
+    nav a {
+        border-right: none;
+    }
+
+    main {
+        width: calc(100% - 1rem);
+        padding: 1.25rem 1rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+}
+
+
+/* ---------- Reduced Motion Accessibility ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
