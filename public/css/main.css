@@ -5,6 +5,7 @@
    Main Stylesheet
    ========================================================= */
 
+
 /* ---------- CSS Variables ---------- */
 
 :root {
@@ -13,24 +14,35 @@
     --color-secondary: #0f766e;
     --color-accent: #d97706;
 
-    --color-background: #f5f7f9;
+    --color-background: #f1f5f9;
     --color-surface: #ffffff;
+    --color-surface-alt: #f8fafc;
+
     --color-text: #1f2937;
-    --color-text-muted: #4b5563;
-    --color-border: #d1d5db;
+    --color-text-muted: #64748b;
+
+    --color-border: #dbe2e8;
 
     --color-focus: #f59e0b;
 
     --max-width: 1100px;
 
     --radius: 10px;
-    --shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
 
-    --font-main: Arial, Helvetica, sans-serif;
+    --shadow:
+        0 2px 6px rgba(15, 23, 42, 0.06);
+
+    --shadow-hover:
+        0 8px 20px rgba(15, 23, 42, 0.12);
+
+    --font-main:
+        Arial,
+        Helvetica,
+        sans-serif;
 }
 
 
-/* ---------- Reset / Base Styles ---------- */
+/* ---------- Reset ---------- */
 
 * {
     box-sizing: border-box;
@@ -56,10 +68,13 @@ body {
 }
 
 
-/* ---------- Navigation ---------- */
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
 
 nav {
     background-color: var(--color-primary);
+
     border-bottom: 4px solid var(--color-accent);
 }
 
@@ -81,10 +96,12 @@ nav li {
 
 nav a {
     display: block;
+
     padding: 1rem 1.25rem;
 
     color: #ffffff;
     text-decoration: none;
+
     font-weight: 700;
 
     transition:
@@ -103,34 +120,44 @@ nav a:focus-visible {
 }
 
 
-/* ---------- Main Content ---------- */
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
 
 main {
     width: min(100% - 2rem, var(--max-width));
+
     margin: 3rem auto;
     padding: 2.5rem;
 
     background-color: var(--color-surface);
+
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
+
     box-shadow: var(--shadow);
 
     flex: 1;
 }
 
 
-/* ---------- Headings ---------- */
+/* =========================================================
+   HEADINGS
+   ========================================================= */
 
 h1,
 h2,
 h3 {
     margin-top: 0;
+
     color: var(--color-primary-dark);
+
     line-height: 1.25;
 }
 
 h1 {
     margin-bottom: 0.75rem;
+
     font-size: clamp(2rem, 5vw, 2.75rem);
 }
 
@@ -147,11 +174,15 @@ p {
 }
 
 
-/* ---------- Organization List ---------- */
+/* =========================================================
+   ORGANIZATION LIST
+   ========================================================= */
 
 main > ul {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 1.5rem;
 
     margin: 2rem 0 0;
@@ -166,16 +197,17 @@ main > ul > li {
     align-items: flex-start;
 
     min-width: 0;
+
     padding: 1.5rem;
 
-    background-color: #f8fafc;
+    background-color: var(--color-surface-alt);
+
     border: 1px solid var(--color-border);
     border-top: 5px solid var(--color-secondary);
+
     border-radius: var(--radius);
 
-    color: var(--color-text);
-
-    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
+    box-shadow: var(--shadow);
 
     transition:
         transform 0.2s ease,
@@ -184,11 +216,14 @@ main > ul > li {
 
 main > ul > li:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.12);
+
+    box-shadow: var(--shadow-hover);
 }
 
 
-/* ---------- Organization Logos ---------- */
+/* =========================================================
+   ORGANIZATION LOGOS
+   ========================================================= */
 
 main > ul > li img {
     display: block;
@@ -197,28 +232,166 @@ main > ul > li img {
     max-width: 180px;
     height: 100px;
 
+    margin-bottom: 1rem;
+
     object-fit: contain;
     object-position: left center;
-
-    margin-bottom: 1rem;
 }
 
 
-/* ---------- Organization Names ---------- */
+/* =========================================================
+   ORGANIZATION NAMES
+   ========================================================= */
 
 main > ul > li strong {
     display: block;
+
     margin-bottom: 0.25rem;
 
     color: var(--color-primary-dark);
+
     font-size: 1.1rem;
 }
 
 
-/* ---------- Links ---------- */
+/* =========================================================
+   PROJECT LIST
+   ========================================================= */
+
+.project-list {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 1.5rem;
+
+    margin: 2rem 0 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+/* =========================================================
+   PROJECT CARDS
+   ========================================================= */
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    min-height: 260px;
+
+    padding: 1.5rem;
+
+    background-color: var(--color-surface);
+
+    border: 1px solid var(--color-border);
+    border-left: 5px solid var(--color-secondary);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+
+    border-left-color: var(--color-accent);
+
+    box-shadow: var(--shadow-hover);
+}
+
+
+/* =========================================================
+   PROJECT TITLE
+   ========================================================= */
+
+/*
+   Required assignment format:
+
+   Date: Project Title (Organization Name)
+
+   Example:
+
+   September 15, 2026: Community Garden Cleanup
+   (Community Center)
+*/
+
+.project-title {
+    margin: 0 0 1rem;
+
+    color: var(--color-primary-dark);
+
+    font-size: 1.3rem;
+    font-weight: 700;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   PROJECT DESCRIPTION
+   ========================================================= */
+
+.project-description {
+    margin: 0 0 1.5rem;
+
+    color: var(--color-text);
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   PROJECT DETAILS
+   ========================================================= */
+
+.project-details {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 0.75rem 1.5rem;
+
+    margin-top: auto;
+    padding-top: 1rem;
+
+    border-top: 1px solid var(--color-border);
+
+    color: var(--color-text-muted);
+
+    font-size: 0.95rem;
+}
+
+.project-location,
+.project-date {
+    display: flex;
+    align-items: center;
+
+    gap: 0.4rem;
+}
+
+.project-location strong,
+.project-date strong {
+    color: var(--color-primary-dark);
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
 
 a {
     color: #075985;
+
+    transition:
+        color 0.2s ease;
 }
 
 a:hover {
@@ -231,13 +404,16 @@ a:focus-visible {
 }
 
 
-/* ---------- Footer ---------- */
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 footer {
     margin-top: auto;
     padding: 1.5rem 1rem;
 
     background-color: var(--color-primary-dark);
+
     color: #ffffff;
 
     text-align: center;
@@ -245,14 +421,18 @@ footer {
 
 footer p {
     max-width: var(--max-width);
+
     margin: 0 auto;
 
     color: #ffffff;
+
     font-size: 0.95rem;
 }
 
 
-/* ---------- Responsive: Tablets ---------- */
+/* =========================================================
+   TABLET
+   ========================================================= */
 
 @media (max-width: 800px) {
 
@@ -272,16 +452,24 @@ footer p {
     main > ul {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .project-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 
-/* ---------- Responsive: Mobile ---------- */
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 600px) {
 
     nav ul {
         display: grid;
+
         grid-template-columns: repeat(2, 1fr);
+
         width: 100%;
     }
 
@@ -289,13 +477,19 @@ footer p {
         padding: 0.8rem 0.5rem;
 
         text-align: center;
-        border-right: 1px solid rgba(255, 255, 255, 0.2);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+        border-right:
+            1px solid rgba(255, 255, 255, 0.2);
+
+        border-bottom:
+            1px solid rgba(255, 255, 255, 0.2);
     }
 
     main {
         width: calc(100% - 1.5rem);
+
         margin: 1.25rem auto;
+
         padding: 1.5rem 1.25rem;
 
         border-radius: 8px;
@@ -307,6 +501,7 @@ footer p {
 
     main > ul {
         grid-template-columns: 1fr;
+
         gap: 1rem;
     }
 
@@ -318,10 +513,34 @@ footer p {
         max-width: 160px;
         height: 90px;
     }
+
+    .project-list {
+        grid-template-columns: 1fr;
+
+        gap: 1rem;
+    }
+
+    .project-card {
+        min-height: 0;
+
+        padding: 1.25rem;
+    }
+
+    .project-title {
+        font-size: 1.2rem;
+    }
+
+    .project-details {
+        flex-direction: column;
+
+        gap: 0.5rem;
+    }
 }
 
 
-/* ---------- Very Small Screens ---------- */
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
 
 @media (max-width: 380px) {
 
@@ -335,6 +554,7 @@ footer p {
 
     main {
         width: calc(100% - 1rem);
+
         padding: 1.25rem 1rem;
     }
 
@@ -344,7 +564,9 @@ footer p {
 }
 
 
-/* ---------- Reduced Motion Accessibility ---------- */
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
