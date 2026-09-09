@@ -41,23 +41,6 @@ INSERT INTO project (
     location,
     project_date
 )
-VALUES (
-    1,
-    'Test Project',
-    'This is a test project.',
-    'Test Location',
-    '2026-07-18'
-);
-
-select * from project;
-
-INSERT INTO project (
-    organization_id,
-    title,
-    description,
-    location,
-    project_date
-)
 VALUES
 (1, 'Rooftop Garden Initiative', 'Establish a community vegetable garden on an unused apartment rooftop and teach residents about sustainable urban farming.', 'Maplewood Apartments Community Center', '2026-04-18'),
 (1, 'Neighborhood Seed Exchange', 'Host a seed-sharing event where residents can exchange locally adapted seeds and learn basic seed-saving techniques.', 'Eastside Community Library', '2026-05-09'),
@@ -74,3 +57,74 @@ VALUES
 (3, 'Solar Bus Shelter Project', 'Build a solar-powered bus shelter with lighting and charging stations to improve comfort and safety for public transit users.', 'Main Street Transit Stop', '2026-06-20'),
 (3, 'Community Center Renovation', 'Renovate an aging community center using energy-efficient lighting, sustainable materials, and improved insulation.', 'Northside Community Center', '2026-07-11'),
 (3, 'Green Playground Construction', 'Replace outdated playground equipment with sustainably sourced materials and add natural shade and landscaping.', 'Sunrise Elementary School', '2026-08-15');
+
+
+create table category (
+	category_id serial primary key,
+	name varchar(255) not null
+)
+
+create table project_category (
+	category_id integer,
+	foreign key (category_id) references category(category_id),
+	project_id integer,
+	foreign key (project_id) references project(project_id),
+    primary key (category_id, project_id)
+)
+
+
+insert into category (
+	name
+)
+values
+('Community Support'),
+('Environmental & Sustainability'),
+('Community Development');
+
+INSERT INTO project_category (category_id, project_id)
+VALUES
+(2, 2), -- Rooftop Garden Initiative
+(3, 2), -- Rooftop Garden Initiative
+(1, 2), -- Rooftop Garden Initiative
+
+(2, 3), -- Neighborhood Seed Exchange
+(1, 3), -- Neighborhood Seed Exchange
+(3, 3), -- Neighborhood Seed Exchange
+
+(1, 4), -- School Garden Workshop
+(2, 4), -- School Garden Workshop
+(3, 4), -- School Garden Workshop
+
+(2, 5), -- Community Compost Project
+(1, 5), -- Community Compost Project
+
+(1, 6), -- Summer Harvest Festival
+(2, 6), -- Summer Harvest Festival
+
+(1, 7), -- Food Pantry Support Day
+
+(1, 8), -- Senior Home Assistance
+(3, 8), -- Senior Home Assistance
+
+(1, 9), -- Community Clothing Drive
+
+(2, 10), -- River Cleanup Day
+(1, 10), -- River Cleanup Day
+
+(1, 11), -- Back-to-School Supply Drive
+
+(3, 12), -- Community Garden Pavilion
+(2, 12), -- Community Garden Pavilion
+
+(3, 13), -- Accessible Park Improvements
+(1, 13), -- Accessible Park Improvements
+
+(3, 14), -- Solar Bus Shelter Project
+(2, 14), -- Solar Bus Shelter Project
+
+(3, 15), -- Community Center Renovation
+(2, 15), -- Community Center Renovation
+
+(3, 16), -- Green Playground Construction
+(2, 16), -- Green Playground Construction
+(1, 16); -- Green Playground Construction
