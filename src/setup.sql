@@ -83,48 +83,48 @@ values
 
 INSERT INTO project_category (category_id, project_id)
 VALUES
-(2, 2), -- Rooftop Garden Initiative
-(3, 2), -- Rooftop Garden Initiative
-(1, 2), -- Rooftop Garden Initiative
+(2, 1), -- Rooftop Garden Initiative
+(3, 1),
+(1, 1),
 
-(2, 3), -- Neighborhood Seed Exchange
-(1, 3), -- Neighborhood Seed Exchange
-(3, 3), -- Neighborhood Seed Exchange
+(2, 2), -- Neighborhood Seed Exchange
+(1, 2),
+(3, 2),
 
-(1, 4), -- School Garden Workshop
-(2, 4), -- School Garden Workshop
-(3, 4), -- School Garden Workshop
+(1, 3), -- School Garden Workshop
+(2, 3),
+(3, 3),
 
-(2, 5), -- Community Compost Project
-(1, 5), -- Community Compost Project
+(2, 4), -- Community Compost Project
+(1, 4),
 
-(1, 6), -- Summer Harvest Festival
-(2, 6), -- Summer Harvest Festival
+(1, 5), -- Summer Harvest Festival
+(2, 5),
 
-(1, 7), -- Food Pantry Support Day
+(1, 6), -- Food Pantry Support Day
 
-(1, 8), -- Senior Home Assistance
-(3, 8), -- Senior Home Assistance
+(1, 7), -- Senior Home Assistance
+(3, 7),
 
-(1, 9), -- Community Clothing Drive
+(1, 8), -- Community Clothing Drive
 
-(2, 10), -- River Cleanup Day
-(1, 10), -- River Cleanup Day
+(2, 9), -- River Cleanup Day
+(1, 9),
 
-(1, 11), -- Back-to-School Supply Drive
+(1, 10), -- Back-to-School Supply Drive
 
-(3, 12), -- Community Garden Pavilion
-(2, 12), -- Community Garden Pavilion
+(3, 11), -- Community Garden Pavilion
+(2, 11),
 
-(3, 13), -- Accessible Park Improvements
-(1, 13), -- Accessible Park Improvements
+(3, 12), -- Accessible Park Improvements
+(1, 12),
 
-(3, 14), -- Solar Bus Shelter Project
-(2, 14), -- Solar Bus Shelter Project
+(3, 13), -- Solar Bus Shelter Project
+(2, 13),
 
-(3, 15), -- Community Center Renovation
-(2, 15), -- Community Center Renovation
+(3, 14), -- Community Center Renovation
+(2, 14),
 
-(3, 16), -- Green Playground Construction
-(2, 16), -- Green Playground Construction
-(1, 16); -- Green Playground Construction
+(3, 15), -- Green Playground Construction
+(2, 15),
+(1, 15);

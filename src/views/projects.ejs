@@ -16,10 +16,11 @@
 
                 <li class="project-card">
                     <h3 class="project-title">
-                        <%= formattedDate %>: <a href="/project/<%= project.project_id %>">
+                        <%= formattedDate %>: <a class="project-link" href="/project/<%= project.project_id %>">
                                 <%= project.title %>
-                            </a> <a href="/organization/<%= project.organization_id %>">
-                                (<%= project.name %>)</a>
+                            </a> <a class="organization-link" href="/organization/<%= project.organization_id %>">
+                                <%= project.name %>
+                            </a>
                     </h3>
                     <p class="project-description">
                         <%= project.description %>
