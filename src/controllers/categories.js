@@ -13,7 +13,7 @@ let categoryValidation = [
         .trim()
         .notEmpty().withMessage('Category name is required')
         .isLength({ min: 3, max: 100 })
-        .withMessage('Category name must be between 3 and 150 characters')
+        .withMessage('Category name must be between 3 and 100 characters')
 ];
 
 // Define any controller functions
