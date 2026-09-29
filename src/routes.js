@@ -83,7 +83,7 @@ router.post('/new-project', projectValidation, processNewProjectForm);
 
 router.post('/project/:projectId/assign-categories', processAssignCategoriesForm);
 
-router.post('/edit-project/:projectId', processEditProjectForm);
+router.post('/edit-project/:projectId', projectValidation, processEditProjectForm);
 
 router.post('/new-category', categoryValidation, processNewCategoryForm);
 
