@@ -70,7 +70,7 @@ const requireLogin = (req, res, next, error) => {
     if (!req.session.user || !req.session) {
         console.error('Error during login:', error);
         req.flash('error', 'You must be logged in to access that page.');
-        res.redirect('/login');
+        return res.redirect('/login');
     }
     
     next();
